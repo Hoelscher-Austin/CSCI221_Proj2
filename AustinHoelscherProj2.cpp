@@ -34,6 +34,11 @@ int main()
     CDAccount account;
     account.input(cin);
 
+    cout << account.get_initial_balance();
+    cout << account.get_balance_at_maturity();
+    cout << account.get_interest_rate();
+
+
     // You may watch the video note to get the idea
     // notice that user will only enter balance as a double value
     // You may implement it as a menu oriented testing program
