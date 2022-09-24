@@ -2,8 +2,9 @@
  * Programming Project 1 on page 611 to get some idea. Then try to finish
  * independently by complete this sample file.
  * 
- * Author: Your Name
- * Version: Date
+ * Author: Austin Hoelscher
+ * Version: 09/22/2022
+ * Description: Learning how to create & implement classes and their methods.
  */
 
 #include <iostream>
