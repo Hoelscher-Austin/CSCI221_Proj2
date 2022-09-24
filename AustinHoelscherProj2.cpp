@@ -32,11 +32,10 @@ int main()
 {
     // You implement the test code here
     CDAccount account;
+    
     account.input(cin);
 
-    cout << account.get_initial_balance();
-    cout << account.get_balance_at_maturity();
-    cout << account.get_interest_rate();
+    account.output(cout);
 
 
     // You may watch the video note to get the idea
@@ -64,3 +63,29 @@ void CDAccount::input(istream& in)
     cout << "Enter the term length in months: ";
     in >> term; // get term from user
 }
+
+void CDAccount::output(ostream& out){
+    cout << "\nInitial Balance: ";
+    cout << get_initial_balance();
+    cout << "\nBalance at maturity: ";
+    cout << get_balance_at_maturity();
+    cout << "\nInterest rate: ";
+    cout << get_interest_rate();
+    cout << "\nTerm Length: ";
+    cout << get_term();
+}
+
+    double CDAccount::get_initial_balance() const{
+        return 1.0; 
+    }
+
+    double CDAccount::get_balance_at_maturity() const{
+            return 1.0; 
+    }
+
+    double CDAccount::get_interest_rate() const{
+            return 1.0; 
+    }
+    int CDAccount::get_term() const{
+            return 1.0; 
+    }
