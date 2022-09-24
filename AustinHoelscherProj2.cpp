@@ -32,11 +32,34 @@ int main()
 {
     // You implement the test code here
     CDAccount account;
+
+    cout << "\nAccount 1\n";
+
+    cout << "-----------\n\n";
+
+    cout << "Enter account information - \n";
     
     account.input(cin);
 
     account.output(cout);
 
+    cout << "---------------------\n";
+    
+    cout << "\nAccount 2\n";
+
+    cout << "-----------\n";
+
+    CDAccount account2(567.99, 0.05, 12);
+
+    account2.output(cout);
+    
+    cout << "---------------------\n";
+
+
+    
+
+
+    return 0;
 
     // You may watch the video note to get the idea
     // notice that user will only enter balance as a double value
@@ -49,6 +72,21 @@ int main()
 // different since the private information balance is stored differently
 // for example, the input function will only read the balance, itnerest rate
 // and term from the user. So it should be modified as following
+
+CDAccount::CDAccount(){
+    dollar = 0;
+    cent = 0;
+    interest_rate = 0;
+    term = 0;
+}
+
+CDAccount::CDAccount(double new_balance, double new_interest_rate, int new_term){
+    dollar = (int) new_balance;
+    cent = (int) ((new_balance - dollar)*100);
+    interest_rate = new_interest_rate;
+    term = new_term;
+
+}
 void CDAccount::input(istream& in)
 {
     double balance;
@@ -66,26 +104,28 @@ void CDAccount::input(istream& in)
 
 void CDAccount::output(ostream& out){
     cout << "\nInitial Balance: ";
-    cout << get_initial_balance();
+    out << get_initial_balance();
     cout << "\nBalance at maturity: ";
-    cout << get_balance_at_maturity();
+    out << get_balance_at_maturity();
     cout << "\nInterest rate: ";
-    cout << get_interest_rate();
+    out << get_interest_rate();
     cout << "\nTerm Length: ";
-    cout << get_term();
+    out << get_term();
+    cout << endl;
 }
 
     double CDAccount::get_initial_balance() const{
-        return 1.0; 
+        return dollar + cent/100.0; 
     }
 
     double CDAccount::get_balance_at_maturity() const{
-            return 1.0; 
+            double balance = get_initial_balance();
+            return balance * (1 + balance * term/12.0); 
     }
 
     double CDAccount::get_interest_rate() const{
-            return 1.0; 
+            return interest_rate; 
     }
     int CDAccount::get_term() const{
-            return 1.0; 
+            return term; 
     }
